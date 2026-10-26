@@ -10,8 +10,12 @@ main:
 
 	# TODO:
 	# 1. Set $a0 = 15 and $a1 = 20
+	addi    $a0,    $zero,  15
+	addi    $a1,    $zero,  20
 	# 2. Call addTwo using jal
+	jal     addTwo
 	# 3. Store the returned result in $s5
+	add     $s5,    $zero,  $v0                        # jr $ra points to this instruction
 
 	# Task 2: Calculate the array sum
 	# Write your loop directly in main
@@ -33,5 +37,8 @@ main:
 addTwo:
 	# TODO:
 	# 1. Add $a0 and $a1
+	add     $t0,    $a0,    $a1
 	# 2. Store the result in $v0
+	add     $v0,    $zero,  $t0
 	# 3. Return using jr $ra
+	jr      $ra
